@@ -51,6 +51,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "st"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
+file = "pcmanfm"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -297,6 +298,8 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
+    awful.key({ "Control",        }, "p",     function () awful.spawn(file) end,
+              {descirption = "open pcmanfm", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
