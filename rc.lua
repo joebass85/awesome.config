@@ -52,6 +52,7 @@ terminal = "st"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 file = "pcmanfm"
+browser = "firefox"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -300,6 +301,8 @@ globalkeys = gears.table.join(
               {description = "select previous", group = "layout"}),
     awful.key({ "Control",        }, "p",     function () awful.spawn(file) end,
               {descirption = "open pcmanfm", group = "launcher"}),
+    awful.key({ "Control",        }, "f",     function () awful.spawn(browser) end,
+	      {description = "open firefox", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
