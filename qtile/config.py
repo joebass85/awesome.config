@@ -6,7 +6,6 @@ from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy, Client
 from libqtile import layout, bar, widget, hook
 from libqtile.widget import Spacer
-from libqtile.manager import Qtile
 
 mod = "mod4"
 mod1 = "alt"
@@ -36,7 +35,7 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=18'")),
     Key([mod, "shift"], "r", lazy.restart()), #Restarts qtile
     Key([mod, "shift"], "q", lazy.shutdown()), #Logs out of qtile session
-    Key([mod, "shift"], "t", lazy.spawn("st sudo nano /home/jd/.config/qtile/config.py")), #Launches qtile config
+    Key([mod, "shift"], "t", lazy.spawn("st sudo vi /home/jd/.config/qtile/config.py")), #Launches qtile config
 
 # CONTROL + ALT KEYS
     Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/qtile/scripts/compton-toggle.sh')),
@@ -51,7 +50,7 @@ keys = [
     Key([mod2, "shift"], "c", lazy.window.kill()), #Kills window with focus
 
 # CONTROL + SHIFT + SUPER KEYS
-    Key([mod, "shift", "control"], "s", lazy.spawn("shutdown now")),
+    Key([mod, "shift", "control"], "p", lazy.spawn("shutdown now")),
 
 # QTILE LAYOUT KEYS
     Key([mod], "n", lazy.layout.normalize()),
@@ -226,7 +225,7 @@ def init_widgets_list():
                         active = colors[9],
                         inactive = colors[5],
                         rounded = False,
-                        highlight_method = "text",
+                        highlight_method = "block",
                         this_current_screen_border = colors[8],
                         foreground = colors[2],
                         background = colors[1]
@@ -306,22 +305,22 @@ def init_widgets_list():
                # Choose : battery option 2
                # widget.BatteryIcon(),
                # Choose : battery option 3
-               # widget.TextBox(
-               #          font="FontAwesome",
+               #widget.TextBox(
+               #         font="FontAwesome",
                #          text="  ",
                #          foreground=colors[9],
                #          background=colors[1],
                #          padding = 0,
                #          fontsize=16
                #          ),
-               # widget.Battery(
-               #          energy_now_file='charge_now',
-               #          energy_full_file='charge_full',
-               #          power_now_file='current_now',
-               #          foreground=colors[5],
-               #          background=colors[1],
-               #          update_interval = 5
-               #          ),
+               #widget.Battery(
+                         #energy_now_file='charge_now',
+                         #energy_full_file='charge_full',
+                         #power_now_file='current_now',
+                         #foreground=colors[5],
+                         #background=colors[1],
+                         #update_interval = 1
+                         #),
                widget.Sep(
                         linewidth = 2,
                         padding = 10,
@@ -389,7 +388,7 @@ main = None
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
 
 @hook.subscribe.startup
 def start_always():
