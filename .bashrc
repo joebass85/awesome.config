@@ -1,16 +1,3 @@
-#
-# ~/.bashrc
-#
-
-#Ibus settings if you need them
-#type ibus-setup in terminal to change settings and start the daemon
-#delete the hashtags of the next lines and restart
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=dbus
-#export QT_IM_MODULE=ibus
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
 
 export HISTCONTROL=ignoreboth:erasedups
 
@@ -35,7 +22,8 @@ alias syse='sudo systemctl enable'
 alias sysd='sudo systemctl disable'
 alias v='vim'
 alias sv='sudo vim'
-
+alias arp='sudo arp-scan -l'
+alias netst='sudo netstat -tulpn'
 #fix obvious typo's
 alias cd..='cd ..'
 alias pdw="pwd"
