@@ -1,20 +1,24 @@
+#
+# ~/.bashrc
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
 export HISTCONTROL=ignoreboth:erasedups
 
 PS1='[\u@\h \W]\$ '
 
-if [ -d "$HOME/.bin" ] ;
-	then PATH="$HOME/.bin:$PATH"
+if [ -d "$HOME/bin" ] ;
+	then PATH="$HOME/bin:$PATH"
 fi
 
 #list
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -la'
-alias l='ls' 					
-alias l.="ls -A | egrep '^\.'"      
+alias ll='ls -alF'
+alias l='ls'
+alias l.="ls -A | egrep '^\.'"
 alias lll='ls -alF | less'
-alias p='python'
+alias p='python2'
 alias p3='python3'
 alias sysr='sudo systemctl restart'
 alias syss='sudo systemctl start'
@@ -24,6 +28,9 @@ alias v='vim'
 alias sv='sudo vim'
 alias arp='sudo arp-scan -l'
 alias netst='sudo netstat -tulpn'
+alias speed='speedtest-cli --bytes --share --single'
+alias w='sudo wifi-menu'
+
 #fix obvious typo's
 alias cd..='cd ..'
 alias pdw="pwd"
@@ -85,3 +92,4 @@ neofetch
 export EDITOR=vim
 export VISUAL=vim
 export PATH=$PATH
+export BROWSER=firefox
