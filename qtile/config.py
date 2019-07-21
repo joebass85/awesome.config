@@ -42,12 +42,14 @@ keys = [
     Key(["mod1", "control"], "u", lazy.spawn('pavucontrol')),
 
 # ALT + ... KEYS
+    Key(["mod1"], "x", lazy.spawn("xterm")),
 
 # CONTROL
     Key([mod2], "t", lazy.spawn('st')), #Launches st terminal
     Key([mod2], "p", lazy.spawn('pcmanfm')), #Launches pcmanfm
     Key([mod2], "f", lazy.spawn('firefox')), #Launches firefox
     Key([mod2, "shift"], "c", lazy.window.kill()), #Kills window with focus
+    Key([mod2], "o", lazy.spawn('obs')), #Launches obs menu
 
 # CONTROL + SHIFT + SUPER KEYS
     Key([mod, "shift", "control"], "p", lazy.spawn("shutdown now")),
@@ -225,7 +227,7 @@ def init_widgets_list():
                         active = colors[9],
                         inactive = colors[5],
                         rounded = False,
-                        highlight_method = "block",
+                        highlight_method = "text",
                         this_current_screen_border = colors[8],
                         foreground = colors[2],
                         background = colors[1]
