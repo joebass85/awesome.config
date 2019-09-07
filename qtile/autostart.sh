@@ -1,3 +1,3 @@
 #!/bin/sh
 
-/home/jd/Downloads/st/st &
+/home/$USER/st/st &
