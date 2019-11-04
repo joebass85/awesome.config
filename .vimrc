@@ -32,5 +32,4 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost config.h,config.def.h !sudo make clean install
 :nmap <leader>j <Esc>:
 :nmap <leader>w <Esc>:wq<Return>
-autocmd BufWritePost config.py !python3 ~/bin/py/reload.py
 :nmap <leader>q <Esc>:q!<Return>
