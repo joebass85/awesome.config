@@ -17,19 +17,20 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-:imap ii <Esc>
-set mouse=nicr
-no <Up> <Nop>
-no <Down> <Nop>
-no <Left> <Nop>
-no <Right> <Nop>
 ino <Up> <Nop>
 ino <Down> <Nop>
 ino <Left> <Nop>
 ino <Right> <Nop>
+no <Up> <Nop>
+no <Down> <Nop>
+no <Left> <Nop>
+no <Right> <Nop>
+:imap ii <Esc>
+set mouse=nicr
 set wildmode=longest,list,full
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost config.h,config.def.h !sudo make clean install
-:nmap <leader>j <Esc>:
-:nmap <leader>w <Esc>:wq<Return>
 :nmap <leader>q <Esc>:q!<Return>
+:nmap <leader>w <Esc>:wq<Return>
+:nmap <leader>j <Esc>:
+set autoread
