@@ -7,5 +7,5 @@ vimrc file
 dwm config file
 qtile config files
 awesome config files
-
+other misc. files
 ```
