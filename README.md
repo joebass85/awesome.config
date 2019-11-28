@@ -6,4 +6,6 @@ bashrc file
 vimrc file
 dwm config file
 qtile config files
+awesome config files
+
 ```
