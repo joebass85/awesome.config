@@ -28,7 +28,7 @@ set showmode
 set showcmd
 " Fold based on indentation
 set foldmethod=indent
-
+" something, but I'm not sure what
 set foldlevel=99
 " Highlight and match incremental searches
 set hlsearch
@@ -79,8 +79,6 @@ set scrolloff=3
 set smartindent
 " Set smart tab
 set smarttab
-" Allows you to use w! sudo restricted files without sudo permission
-cmap w!! w !sudo tee % >/dev/null
 " Tab is 4 spaces
 set tabstop=4
 " Copy previous autoindents
