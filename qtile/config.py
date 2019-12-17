@@ -35,7 +35,8 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=18'")),
     Key([mod, "shift"], "r", lazy.restart()), #Restarts qtile
     Key([mod, "shift"], "q", lazy.shutdown()), #Logs out of qtile session
-    Key([mod, "shift"], "t", lazy.spawn("st sudo vi /home/jd/.config/qtile/config.py")), #Launches qtile config
+    Key([mod, "shift"], "t", lazy.spawn("st vim /home/j/.config/qtile/config.py")), #Launches qtile config
+    Key([mod, "shift"], "s", lazy.spawn("st vim /home/j/Downloads/st/config.h")),
 
 # CONTROL + ALT KEYS
     Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/qtile/scripts/compton-toggle.sh')),
@@ -43,16 +44,28 @@ keys = [
 
 # ALT + ... KEYS
     Key(["mod1"], "x", lazy.spawn("xterm")),
+    Key(["mod1"], "c", lazy.spawn(home + "/bin/.dmenu/configs")),
 
 # CONTROL
     Key([mod2], "t", lazy.spawn('st')), #Launches st terminal
+    Key([mod2], "e", lazy.spawn('termite')),
     Key([mod2], "p", lazy.spawn('pcmanfm')), #Launches pcmanfm
     Key([mod2], "f", lazy.spawn('firefox')), #Launches firefox
-    Key([mod2, "shift"], "c", lazy.window.kill()), #Kills window with focus
-    Key([mod2], "o", lazy.spawn('obs')), #Launches obs menu
+    Key([mod, "shift"], "c", lazy.window.kill()), #Kills window with focus
+
+# CONTROL + SUPER KEYS
+    Key([mod, "control"], "s", lazy.spawn(home + '/bin/.dmenu/comms')),
+    Key([mod, "control"], "m", lazy.spawn(home + '/bin/.dmenu/mount')),
+    Key([mod, "control"], "u", lazy.spawn(home + '/bin/.dmenu/unmount')),
+    Key([mod, "control"], "g", lazy.spawn('python3 ' + home + '/bin/py/gsh.py')),
+    Key([mod, "control"], "p", lazy.spawn(home + '/bin/.dmenu/prgrms')),
+    Key([mod, "control"], "x", lazy.spawn(home + '/bin/.dmenu/sshin')),
+    Key([mod, "control"], "d", lazy.spawn(home + '/bin/.dmenu/dfm/dfm')),
+
 
 # CONTROL + SHIFT + SUPER KEYS
     Key([mod, "shift", "control"], "p", lazy.spawn("shutdown now")),
+    Key([mod, "shift", "control"], "r", lazy.spawn("reboot")),
 
 # QTILE LAYOUT KEYS
     Key([mod], "n", lazy.layout.normalize()),
@@ -272,14 +285,14 @@ def init_widgets_list():
                       #  type = "box"
                        # ),
                         # do not activate in Virtualbox - will break qtile
-              widget.ThermalSensor(
-                        foreground = colors[5],
-                        foreground_alert = colors[6],
-                        background = colors[1],
-                        metric = False,
-                        padding = 3,
-                        threshold = 80
-                        ),
+#              widget.ThermalSensor(
+#                        foreground = colors[5],
+#                        foreground_alert = colors[6],
+#                        background = colors[1],
+#                        metric = False,
+#                        padding = 3,
+#                        threshold = 80
+#                        ),
                #widget.Sep(
                 #        linewidth = 1,
                  #       padding = 10,
