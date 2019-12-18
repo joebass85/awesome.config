@@ -8,16 +8,16 @@ export HISTCONTROL=ignoreboth:erasedups
 PS1='[\u@\h \W]\$ '
 
 if [ -d "$HOME/bin" ] ;
-	then PATH="$HOME/bin:$PATH"
+	then PATH="$HOME/bin/sh:$PATH"
 fi
 
 #list
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -alF'
+alias ll='ls -AlF'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
-alias lll='ls -alF | less'
+alias lll='ls -AlF | less'
 alias p='python2'
 alias p3='python3'
 alias sysr='sudo systemctl restart'
@@ -88,9 +88,11 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 
 [[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
 
-neofetch
-export EDITOR=vim
 export VISUAL=vim
 export PATH=$PATH
 export BROWSER=firefox
 repo="https://github.com/joebass85"
+set -o vi
+export TERMINAL=st
+export EDITOR=vim
+neofetch
