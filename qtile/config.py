@@ -35,8 +35,6 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=18'")),
     Key([mod, "shift"], "r", lazy.restart()), #Restarts qtile
     Key([mod, "shift"], "q", lazy.shutdown()), #Logs out of qtile session
-    Key([mod, "shift"], "t", lazy.spawn("st vim /home/j/.config/qtile/config.py")), #Launches qtile config
-    Key([mod, "shift"], "s", lazy.spawn("st vim /home/j/Downloads/st/config.h")),
 
 # CONTROL + ALT KEYS
     Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/qtile/scripts/compton-toggle.sh')),
@@ -61,7 +59,6 @@ keys = [
     Key([mod, "control"], "p", lazy.spawn(home + '/bin/.dmenu/prgrms')),
     Key([mod, "control"], "x", lazy.spawn(home + '/bin/.dmenu/sshin')),
     Key([mod, "control"], "d", lazy.spawn(home + '/bin/.dmenu/dfm/dfm')),
-
 
 # CONTROL + SHIFT + SUPER KEYS
     Key([mod, "shift", "control"], "p", lazy.spawn("shutdown now")),
@@ -184,15 +181,15 @@ for i in groups:
 
 def init_layout_theme():
     return {"margin":2,
-            "border_width":2,
-            "border_focus": "#5e81ac",
-            "border_normal": "#4c566a"
+            "border_width":1,
+            "border_focus": "#ff0000",
+            "border_normal": "#0000ff"
             }
 
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
+    layout.MonadTall(margin=2, border_width=1, border_focus="#ff0000", border_normal="#000000"),
 #    layout.MonadWide(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
 #    layout.Matrix(**layout_theme),
 #    layout.Bsp(**layout_theme),
@@ -220,7 +217,7 @@ colors = init_colors()
 
 def init_widgets_defaults():
     return dict(font="Noto Sans",
-                fontsize = 12,
+                fontsize = 16,
                 padding = 2,
                 background=colors[1])
 
@@ -230,7 +227,7 @@ def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
                widget.GroupBox(font="FontAwesome",
-                        fontsize = 16,
+                        fontsize = 18,
                         margin_y = -1,
                         margin_x = 0,
                         padding_y = 6,
@@ -263,7 +260,7 @@ def init_widgets_list():
                         background = colors[1]
                         ),
                widget.WindowName(font="Noto Sans",
-                        fontsize = 14,
+                        fontsize = 16,
                         foreground = colors[5],
                         background = colors[1],
                         ),
@@ -419,7 +416,7 @@ def set_floating(window):
 floating_types = ["notification", "toolbar", "splash", "dialog"]
 
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = True
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'confirm'},
